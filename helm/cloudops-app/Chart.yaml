@@ -1,0 +1,8 @@
+apiVersion: v2
+name: cloudops-app
+description: MERN task management application deployed on AWS EKS
+
+type: application
+
+version: 0.1.0
+appVersion: "1.0.0"

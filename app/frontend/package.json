@@ -1,0 +1,17 @@
+{
+  "name": "cloudops-frontend",
+  "version": "1.0.0",
+  "description": "CloudOps Platform MERN frontend",
+  "private": true,
+  "scripts": {
+    "start": "vite",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "^5.0.2",
+    "vite": "^7.1.5",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  },
+  "devDependencies": {}
+}

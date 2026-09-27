@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: {{ include "cloudops-app.fullname" . }}-mongodb
+  labels:
+    app: {{ include "cloudops-app.name" . }}-mongodb
+spec:
+  serviceName: {{ include "cloudops-app.fullname" . }}-mongodb
+  replicas: {{ .Values.mongodb.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ include "cloudops-app.name" . }}-mongodb
+  template:
+    metadata:
+      labels:
+        app: {{ include "cloudops-app.name" . }}-mongodb
+    spec:
+      containers:
+        - name: mongodb
+          image: "{{ .Values.mongodb.image.repository }}:{{ .Values.mongodb.image.tag }}"
+          imagePullPolicy: {{ .Values.mongodb.image.pullPolicy }}
+          ports:
+            - name: mongodb
+              containerPort: {{ .Values.mongodb.service.targetPort }}
+              protocol: TCP
+          volumeMounts:
+            - name: mongodb-data
+              mountPath: /data/db
+  volumeClaimTemplates:
+    - metadata:
+        name: mongodb-data
+      spec:
+        accessModes:
+          - ReadWriteOnce
+        storageClassName: gp3
+        resources:
+          requests:
+            storage: 10Gi
