@@ -57,16 +57,20 @@ app.post("/api/tasks", async (req, res) => {
   }
 });
 
-mongoose
-  .connect(MONGO_URI)
-  .then(() => {
-    console.log("MongoDB connected");
+if (require.main === module) {
+  mongoose
+    .connect(MONGO_URI)
+    .then(() => {
+      console.log("MongoDB connected");
 
-    app.listen(PORT, "0.0.0.0", () => {
-      console.log(`CloudOps backend running on port ${PORT}`);
+      app.listen(PORT, "0.0.0.0", () => {
+        console.log(`CloudOps backend running on port ${PORT}`);
+      });
+    })
+    .catch((error) => {
+      console.error("MongoDB connection failed:", error);
+      process.exit(1);
     });
-  })
-  .catch((error) => {
-    console.error("MongoDB connection failed:", error);
-    process.exit(1);
-  });
+}
+
+module.exports = app;
