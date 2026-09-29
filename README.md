@@ -569,6 +569,26 @@ The Jenkins pipeline completed successfully after automated backend testing was 
 
 ---
 
+## 📸 Screenshots
+
+### EKS Cluster
+![EKS Nodes](docs/screenshots/01-eks-nodes-ready.png)
+
+### Kubernetes Workloads
+![Kubernetes Workloads](docs/screenshots/02-kubernetes-workloads.png)
+
+### AWS Application Load Balancer
+![AWS ALB Ingress](docs/screenshots/03-aws-alb-ingress.png)
+
+### Application Health Check
+![Application Health](docs/screenshots/04-application-health-check.png)
+
+### Vault Integration
+![Vault Agent Integration](docs/screenshots/05-vault-agent-integration.png)
+
+### Prometheus + Grafana Monitoring
+![Grafana Monitoring](docs/screenshots/06-grafana-monitoring-dashboard.png)
+
 # 📁 Project Structure
 
 ```text
