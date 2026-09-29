@@ -10,7 +10,7 @@ resource "aws_instance" "this" {
 
   iam_instance_profile = aws_iam_instance_profile.jenkins.name
 
-  associate_public_ip_address = true
+  associate_public_ip_address = false
 
   lifecycle {
     replace_triggered_by = [
